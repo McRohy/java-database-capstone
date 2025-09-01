@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="../assets/images/logo/logo.png"/>
+    <title>Doctor Dashboard</title>
+
+    <link rel="stylesheet" href="../assets/css/adminDashboard.css">
+    <link rel="stylesheet" href="../assets/css/doctorDashboard.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+
+    <script src="../js/render.js" defer></script>
+    <script src="../js/util.js" defer></script>
+    <script src="../js/components/header.js" defer></script>
+    <script src="../js/components/footer.js" defer></script>
+
+</head>
+<body>
+<div class="container">
+    <div class="wrapper">
+
+        <div id="header"></div>
+
+        <main class="main-content">
+            <div class="search-section">
+                <input type="text" id="searchBar" placeholder="Search patients by name, ID, or phone"/>
+            </div>
+
+            <div class="filter-section">
+
+                <button id="todayAppointments" class="filter-btn active">
+                    Today's Appointments
+                </button>
+
+
+                <div class="date-filter">
+                    <label for="appointmentDate" class="date-label">Select Date:</label>
+                    <input type="date" id="appointmentDate" class="date-input"/>
+                </div>
+            </div>
+
+            <div class="table-container">
+                <table id="patientTable" class="patient-table">
+                    <thead>
+                    <tr>
+                        <th>Patient ID</th>
+                        <th>Name</th>
+                        <th>Phone</th>
+                        <th>Email</th>
+                        <th>Prescription</th>
+                        <th>Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody id="patientTableBody">
+
+                    </tbody>
+                </table>
+
+                <div id="emptyState" class="empty-state" style="display: none;">
+                    <p>No patients found for the selected criteria.</p>
+                </div>
+            </div>
+
+            <div id="loadingIndicator" class="loading" style="display: none;">
+                <p>Loading patient data...</p>
+            </div>
+        </main>
+
+        <div id="footer"></div>
+    </div>
+</div>
+
+<div id="prescriptionModal" class="modal">
+    <span id="closePrescriptionModal" class="close">&times;</span>
+    <div id="prescription-modal-body" class="modal-body">
+    </div>
+</div>
+
+<div id="patientDetailsModal" class="modal">
+    <span id="closePatientDetailsModal" class="close">&times;</span>
+    <div id="patient-details-modal-body" class="modal-body">
+    </div>
+</div>
+</body>
+</html>
